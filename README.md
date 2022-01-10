@@ -53,4 +53,18 @@ API(Json), JSP & Thymeleaf
 
 >**Model View Controller**
 
-    
+---
+
+**DispacherServlet**
+
+`org.springframework.web.servlet.DispatcherServlet`
+
+스프링 MVC는 앞서 구현한 내용처럼 프론트 컨트롤러 패턴으로 구현이 되어있고, 그 컨트롤러가 바로 위의 디스패처 서블릿이다.
+`DispatcherServlet`도 부모 클래스에서 `HttpServlet`을 상속받아서 사용하고 서블릿으로 동작한다.
+> DispatcherServlet -> FrameworkServlet -> HttpServletBean -> HttpServlet
+
+**요청 흐름**
+1. 서블릿 호출되면 `HttpServlet`이 제공하는 `service()` 메소드가 호출된다.
+2. 스프링 MVC는 DispatcherServlet 의 부모인 FrameworkServlet 에서 service() 를 오버라이드
+   해두었다.
+3. FrameworkServlet.service() 를 시작으로 여러 메서드가 호출되면서 DispacherServlet.doDispatch() 가 호출된다.
