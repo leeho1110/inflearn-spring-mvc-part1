@@ -39,3 +39,10 @@
    반환한다.
    JSP의 경우 `InternalResourceView(JstlView)` 를 반환하는데, 내부에 forward() 로직이 있다.
 8. 뷰 렌더링: 뷰를 통해서 뷰를 렌더링 한다
+
+---
+
+**`@RequestMapping`**
+
+보통 요청에 사용될 URL을 위 어노테이션의 value값으로 입력한다. `RequestMappingHandlerMapping`은 스프링 빈 중에서
+`@RequestMapping` 또는 `@Controller`가 클래스 레벨에 붙어있는 경우 매핑 정보로 인식한다.
