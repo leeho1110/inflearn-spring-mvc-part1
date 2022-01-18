@@ -1,4 +1,4 @@
-package hello.servlet.basic.request;
+package hello.servlet.basic.request.servlet;
 
 import java.io.IOException;
 import java.util.Enumeration;
