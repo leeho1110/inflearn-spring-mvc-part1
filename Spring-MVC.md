@@ -58,3 +58,30 @@
 5. byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어있음
 > 응답의 경우 클라이언트의 Http Accept 헤더와 서버의 컨트롤러 반환 타입 정보를 조합하여 `HttpMessageConverter`
 > 가 선택된다. 
+
+---
+
+**`org.springframework.http.converter.HttpMessageConverter`**
+
+HTTP 메시지 컨버터는 HTTP 요청, 응답 둘다 사용된다.
+
+- `canRead()`, `canWrite()` : 메시지 컨버터가 해당 클래스, 미디어 타입을 지원하는지 확인
+- `read()`, `write()` : 메시지 컨버터를 통해서 메시지를 읽고 쓰는 기능
+
+스프링 부트는 이 외에도 다양한 메시지 컨버터를 제공하는데, 대상 클래스 타입과 미디어 타입 둘을 체크해서 컨버터 종류를 결정한다.
+메시지 컨버터를 순회 탐색하며 조건에 만족하는 컨버터를 탐색한다.
+
+- `ByteArrayHttpMessageConverter` : byte 데이터 처리
+  - 클래스 타입 : `byte[]` , 미디어 타입 : `*/*`
+  - 요청 예시: `@RequestBody byte[] data`
+  - 응답 예시 : `@ResponseBody return byte[]`, HTTP 응답 미디어 타입: `application/octet-stream`
+  
+- `StringHttpMessageConverter` : String 문자 데이터 처리
+  - 클래스 타입 : `String`, 미디어 타입: `*/*`
+  - 요청 예시 : `@RequestBody String data`
+  - 응답 예시 : `@ResponseBody return "ok"`, HTTP 응답 미디어 타입 : `text/plain`
+  
+- `MappingJackson2HttpMessageConverter` : Json 데이터 처리
+  - 클래스 타입: 객체 또는 HashMap, 미디어 타입: `application/json`
+  - 요청 예시 : `@RequestBody HelloData data`
+  - 응답 예시 : `@ResponseBody return helloData`, HTTP 응답 미디어 타입 : `application/json`
