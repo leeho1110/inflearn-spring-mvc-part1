@@ -46,3 +46,15 @@
 
 보통 요청에 사용될 URL을 위 어노테이션의 value값으로 입력한다. `RequestMappingHandlerMapping`은 스프링 빈 중에서
 `@RequestMapping` 또는 `@Controller`가 클래스 레벨에 붙어있는 경우 매핑 정보로 인식한다.
+
+---
+
+**`@ResponseBody`**
+
+1. HTTP Body에 문자 내용 직접 변환
+2. `viewResolver` 대신 `HttpMessageConverter` 동작
+3. 기본 문자 처리 : `StringHttpMessageConverter`
+4. 기본 객체 처리 : `MappingJackson2HttpMessageConverter`
+5. byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어있음
+> 응답의 경우 클라이언트의 Http Accept 헤더와 서버의 컨트롤러 반환 타입 정보를 조합하여 `HttpMessageConverter`
+> 가 선택된다. 
