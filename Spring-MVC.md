@@ -84,7 +84,7 @@ HTTP 메시지 컨버터는 HTTP 요청, 응답 둘다 사용된다.
 - `MappingJackson2HttpMessageConverter` : Json 데이터 처리
   - 클래스 타입: 객체 또는 HashMap, 미디어 타입: `application/json`
   - 요청 예시 : `@RequestBody HelloData data`
-  - 응답 예시 : `@ResponseBody return helloData`, HTTP 응답 미디어 타입 : `application/json`  - 응답 예시 : `@ResponseBody return helloData`, HTTP 응답 미디어 타입 : `application/json`
+  - 응답 예시 : `@ResponseBody return helloData`, HTTP 응답 미디어 타입 : `application/json`
 
 ---
 
@@ -94,3 +94,9 @@ HTTP 메시지 컨버터는 HTTP 요청, 응답 둘다 사용된다.
 
 어노테이션 기반의 컨트롤러는 `HttpServletRequest`, `Model`, `@RequestParam`, `@ModelAttribute`,
 `@RequestBody`, `HttpEntity` 같은 HTTP 메시지를 처리하는 부분까지 매우 큰 유연함을 갖는 이유가 바로 이것이다.
+
+---
+
+**`ReturnValueHandler`**
+
+컨트롤러의 반환값들은 위 핸들러가 처리한다.
