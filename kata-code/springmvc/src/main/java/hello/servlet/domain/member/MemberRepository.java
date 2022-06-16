@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 동시성 문제가 고려되어 있지 않음, 실무에서는 ConcurrentHashMap, AtomicLong 사용 고려
+ * 위 객체는 싱글톤 객체다.
+ * 싱글톤 객체는 하나의 인스턴스가 모든 스레드에서 공유된다는 것을 의미하며, 당연하게도 동시성 문제가 고려되어 있지 않다.
+ * 기본적으로는 싱글톤 객체에 상태를 갖는 필드를 선언하지 않는 편이 더 좋다.
+ * 하지만 만약 필요하다면 실무에서는 ConcurrentHashMap, AtomicLong 사용을 고려해야 한다.
+ *
  */
 public class MemberRepository {
 
