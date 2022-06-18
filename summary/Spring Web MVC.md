@@ -28,3 +28,21 @@
     - 컨트롤러를 실행하는 것은 **HadlerAdapter**에게 할당
         - `RequestMappingHandlerAdapter`
     - 클라이언트에게 뷰 페이지를 전달하는 것은 **ViewResolver**에게 할당
+- 스프링에서는 로그를 어떻게 기록할까?
+    - 스프링 부트에서는 보통 **로깅 라이브러리(spring-boot-starter-logging)**를 사용한다.
+        - **SLF4J**: java.util.logging, logback 및 log4j와 같은 다양한 로깅 프레임 워크에 대한추상화(인터페이스) 역할을 하는 라이브러리, 롬복을 통해서 @Slf4j 로 작성 가능
+            
+            > **Causes lombok to generate a logger field.**
+            *lombok에서 인스턴스 필드에 logger를 생성합니다.
+            
+            Example:
+            @Slf4j
+            public class LogExample {
+            }
+            
+            will generate:
+            public class LogExample {
+            private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LogExample.class);
+            }*
+            > 
+        - **Logback**
